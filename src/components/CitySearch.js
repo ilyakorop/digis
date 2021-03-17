@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { TextField, Button } from "@material-ui/core";
 import { useDispatch } from "react-redux";
-import { fetchWeather } from "./redux/actions";
+import { fetchWeather } from "./store/actions";
 
 const _kDisplayName = "CitySearch";
 

@@ -9,10 +9,9 @@ export const fetchWeather = (city) => {
       const response = await axios.get(
         `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric`
       );
-      console.log(response);
       dispatch({ type: FETCH_WEATHER, payload: response.data });
     } catch (error) {
-      console.log(error);
+      console.error(error);
       dispatch({ type: FETCH_WEATHER, payload: error.response.data });
     }
   };
