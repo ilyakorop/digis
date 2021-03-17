@@ -3,9 +3,7 @@ import { LineChart, Line, XAxis, YAxis, Tooltip } from "recharts";
 
 const _kDisplayName = "ChartWeather";
 
-const Element = (props) => {
-  const { data } = props;
-
+const Element = ({ data }) => {
   return (
     <div>
       <LineChart

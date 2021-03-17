@@ -21,6 +21,7 @@ const useStyles = makeStyles(
 
 const Element = () => {
   const weatherInfo = useSelector((state) => state.weatherInfo.cityInfo);
+  console.log(weatherInfo);
   const classes = useStyles();
   return (
     <React.Fragment>

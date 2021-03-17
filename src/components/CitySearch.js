@@ -32,10 +32,12 @@ const Element = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const getWeatherInfo = React.useCallback(
+  const getWeatherInfoHandle = React.useCallback(
     (e) => {
       e.preventDefault();
-      dispatch(fetchWeather(city));
+      if (city.length > 0) {
+        dispatch(fetchWeather(city));
+      }
     },
     [dispatch, city]
   );
@@ -45,22 +47,27 @@ const Element = () => {
   }, []);
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
+    <form
+      className={classes.root}
+      noValidate
+      autoComplete="off"
+      onSubmit={getWeatherInfoHandle}
+    >
       <div>
         <div>
           <TextField
             id="standard-basic"
             classes={{ root: classes.input }}
             label="Enter city name"
-            onSubmit={getWeatherInfo}
             onChange={setCityHandle}
           />
         </div>
         <div>
           <Button
+            disabled={city.length < 1}
             classes={{ root: classes.btn }}
             variant="contained"
-            onClick={getWeatherInfo}
+            onClick={getWeatherInfoHandle}
           >
             Find
           </Button>
